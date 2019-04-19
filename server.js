@@ -61,7 +61,7 @@ function validateApiKey(req, res, next) {
     const authKey = req.get('Authorization');
 
     if(!userKey || authKey.split(' ')[1] !== userKey) {
-        res.status(401).send('Unauthorized token');
+        res.status(401).json({ "Error": "Unauthorized request" });
     }
     next();
 }
